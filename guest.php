@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
   	<![endif]-->
 </head>
-<body>
+<body style bgcolor="beige">
 	<div class="page">
 		<h1>Guestbook:</h1>
 		<form action="" method="POST">

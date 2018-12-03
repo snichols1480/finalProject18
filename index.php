@@ -11,10 +11,9 @@ Below is the function to check if user is loggedin or not.
 Below is the function to check if user is loggedin or not.
 **/
 //isRegistered();
+$term = get('search-term');
 
-//$term = get('search-term');
-
-//$Characters = searchCharacters($term, $database);
+$characters = searchCharacters($term, $database);
 
  ?>
 
@@ -60,6 +59,8 @@ body {scrollbar-face-color:#7b2e00;scrollbar-arrow-color:#c3d2c1;
 <p><h1><a href="guest.php">Guestbook </a></h1><br />
 
 <p><h1><a href="viewGuest.php"> View Guestbook </a></h1><br />
+
+<p><h1><a href="viewCharacters.php"> Search Characters </a></h1><br />
  _________________________________________________________________________</p>
 <p>Welcome!
   To enter, just click <a href="http://www.animeadmirers.com/mainpageaa2.html">HERE</a>,
@@ -72,16 +73,7 @@ of any of the anime contained within my site.  Those people are Kodansha, Clamp,
 Entertainment, Toei, etc. I am just a huge fan.  No copyright infringement is ever intended. Therefore, 
 email me if there is a problem, and I will rectify it immediately. Thank you.</p>
 
-<form method="GET">
-			<input type="text" name="search-term" placeholder="Search Character..." />
-			<input type="submit" />
-		</form>
-		
-			<?php foreach ($Characters as $Character) : ?>
-        <p> <?php echo $Character['name']; ?> <br />
-		</p>
-			<?php endforeach; ?>
-		<p>
+
 <!--
 <IMG SRC=http://visit.webhosting.yahoo.com/counter.gif ALT="Counter">
 -->

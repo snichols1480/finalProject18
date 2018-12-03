@@ -1,7 +1,7 @@
 <?php
 
 // Create and include a configuration file with the database connection
-include('Myconfig.php');
+include('config.php');
 
 // Include functions for application
 include('functions.php');

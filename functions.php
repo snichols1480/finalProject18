@@ -9,8 +9,8 @@ function searchCharacters($term, $database) {
 	);
 	$statement = $database->prepare($sql);
 	$statement->execute($params);
-	$Characters = $statement->fetchAll(PDO::FETCH_ASSOC);
-	return $Characters;
+	$charactersR = $statement->fetchAll(PDO::FETCH_ASSOC);
+	
 }
 
 /*
@@ -30,11 +30,4 @@ function get($key) {
 	}
 }
 
-// Get a list of books from the database with the isbn passed in the URL
-function printGuestbook() {
-	$sql = file_get_contents('sql/getGuests.sql');
-	$params();
-	$statement = $database->prepare($sql);
-	$statement->execute($params);
-	$guests = $statement->fetchAll(PDO::FETCH_ASSOC);
-}
+	

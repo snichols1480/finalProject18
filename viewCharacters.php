@@ -3,14 +3,12 @@
 include('config.php');
 include('functions.php');
 // get our form variables
-// Get a list of guests from the database 
-$sql = file_get_contents('sql/getGuests.sql');
-$params= array();
-$statement = $database->prepare($sql);
-$statement->execute($params);
-$guests = $statement->fetchAll(PDO::FETCH_ASSOC);
+ 
+$term = get('search-term');
 
-//$guest = $guests[0];
+$charactersR = searchCharacters($term, $database);
+
+
 
 	
 	
@@ -21,7 +19,7 @@ $guests = $statement->fetchAll(PDO::FETCH_ASSOC);
 <head>
 	<meta charset="utf-8">
 	
-  	<title>Book</title>
+  	<title>Characters</title>
 	<meta name="description" content="The HTML5 Herald">
 	<meta name="author" content="SitePoint">
 
@@ -34,19 +32,27 @@ $guests = $statement->fetchAll(PDO::FETCH_ASSOC);
 <body style bgcolor="beige">
 
 	<div class="page">
-		<h1>Guestbook</h1>
+		<h1>Characters</h1>
 
 
-		<strong>Guests:</strong>
-
-			<p>
-				<ul>
-				<?php foreach($guests as $guest) : ?>
-				<?php echo $guest['firstName']  ?>  <?php echo $guest['lastName'] ?>,<br />
-				<?php endforeach; ?>
-				</ul>
-			</p>
-			<a href="index.php">HOME<br />
+		<strong>Characters:</strong>
+			<form method="GET">
+			<input type="text" name="search-term" placeholder="Search Character..." />
+			<input type="submit" />
+		</form>
+		<p>
+			
+			<?php if ($charactersR > 0) {
+					echo $characters['name'];
+			}
+					else {
+						echo "No results.";
+					}
+?> 
+			
+		</p>
+			
+		<a href="index.php">HOME<br />
 	
 	</div>
 </body>
